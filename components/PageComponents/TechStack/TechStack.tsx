@@ -21,43 +21,43 @@ interface TechStackProps {
 
 const DEFAULT_GROUPS: BrandGroup[] = [
   {
-    label: 'Equipment Brands We Service',
+    label: 'Systems & Equipment We Service',
     items: [
-      { name: 'Carrier',     type: 'brand', icon: '❄️' },
-      { name: 'Trane',       type: 'brand', icon: '❄️' },
-      { name: 'Lennox',      type: 'brand', icon: '❄️' },
-      { name: 'Rheem',       type: 'brand', icon: '❄️' },
-      { name: 'Goodman',     type: 'brand', icon: '❄️' },
-      { name: 'York',        type: 'brand', icon: '❄️' },
-      { name: 'Daikin',      type: 'brand', icon: '❄️' },
-      { name: 'American Standard', type: 'brand', icon: '❄️' },
+      { name: 'Masonry Chimneys',       type: 'brand', icon: '⚡' },
+      { name: 'Prefab Chimneys',        type: 'brand', icon: '⚡' },
+      { name: 'Wood Fireplaces',          type: 'brand', icon: '⚡' },
+      { name: 'Gas Fireplaces',             type: 'brand', icon: '⚡' },
+      { name: 'Fireplace Inserts',        type: 'brand', icon: '⚡' },
+      { name: 'Chimney Caps',         type: 'brand', icon: '⚡' },
+      { name: 'Dampers',        type: 'brand', icon: '⚡' },
+      { name: 'Dryer Vents', type: 'brand', icon: '⚡' },
     ],
   },
   {
     label: 'Certifications & Licenses',
     items: [
-      { name: 'NATE Certified',      type: 'cert', icon: '✓' },
-      { name: 'TDLR Licensed',       type: 'cert', icon: '✓' },
-      { name: 'EPA 608 Certified',   type: 'cert', icon: '✓' },
-      { name: 'Fully Insured',       type: 'cert', icon: '✓' },
+      { name: 'CSIA-Certified',        type: 'cert', icon: '✓' },
+      { name: 'CSIA Sweep Standards',   type: 'cert', icon: '✓' },
+      { name: 'Bonded & Insured',     type: 'cert', icon: '✓' },
+      { name: 'Clean Sweep Guarantee',      type: 'cert', icon: '✓' },
     ],
   },
   {
-    label: 'System Types',
+    label: 'Service Types',
     items: [
-      { name: 'Central AC',          type: 'tool', icon: '🌡️' },
-      { name: 'Heat Pumps',          type: 'tool', icon: '🌡️' },
-      { name: 'Mini-Splits',         type: 'tool', icon: '🌡️' },
-      { name: 'Gas Furnaces',        type: 'tool', icon: '🌡️' },
-      { name: 'Duct Systems',        type: 'tool', icon: '🌡️' },
-      { name: 'Air Handlers',        type: 'tool', icon: '🌡️' },
+      { name: 'Chimney Sweep',       type: 'tool', icon: '🔌' },
+      { name: 'Chimney Repair',    type: 'tool', icon: '🔌' },
+      { name: 'Fireplace Install',      type: 'tool', icon: '🔌' },
+      { name: 'Caps & Dampers',          type: 'tool', icon: '🔌' },
+      { name: 'Dryer Vent Cleaning',           type: 'tool', icon: '🔌' },
+      { name: 'Annual Inspections',      type: 'tool', icon: '🔌' },
     ],
   },
 ];
 
 const TechStack: React.FC<TechStackProps> = ({
-  title    = 'All Brands, All Systems',
-  subtitle = 'We service every major brand and system type — no brand-specific limitations, no excuses.',
+  title    = 'Certified Work, Proven Methods',
+  subtitle = 'CSIA-certified sweeps, quality materials, and fire-safety standards — no shortcuts on inspection or cleanup.',
   groups   = DEFAULT_GROUPS,
 }) => {
   return (

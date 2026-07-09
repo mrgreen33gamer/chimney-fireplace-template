@@ -1,5 +1,5 @@
 // src/app/layout.tsx
-// Arctic Air HVAC — root layout
+// EmberStack Chimney & Fireplace — root layout
 //
 // MOBILE / SAFE-AREA FIX:
 //   Added a Next.js 14+ `viewport` export with:
@@ -60,7 +60,7 @@ const aBeeZee = ABeeZee({
 
 const isProduction = process.env.NODE_ENV === "production";
 const BASE_URL = isProduction
-  ? "https://www.arcticairhvac.com"
+  ? "https://www.emberstackchimney.com"
   : "http://localhost:3000";
 
 // ── VIEWPORT ──────────────────────────────────────────────────────────────────
@@ -85,42 +85,42 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "Arctic Air HVAC | AC Repair, Heating & Installation — Waco, TX",
-    template: "%s | Arctic Air HVAC",
+    default: "EmberStack Chimney & Fireplace | Chimney Sweep · Repair · Fireplace Install — Waco, TX",
+    template: "%s | EmberStack Chimney & Fireplace",
   },
   description:
-    "Arctic Air HVAC is a Waco, TX heating and cooling company offering AC repair, furnace service, new system installation, duct cleaning, and maintenance plans for Central Texas homes and businesses. Licensed, local, no contracts.",
+    "EmberStack Chimney & Fireplace is a Waco, TX chimney and fireplace company offering chimney sweeps, chimney repair, fireplace installation, caps & dampers, dryer vent cleaning, and annual inspections for Central Texas homes and businesses. CSIA-certified, bonded & insured.",
   keywords: [
-    "Arctic Air HVAC",
-    "HVAC company Waco TX",
-    "AC repair Waco Texas",
-    "air conditioning installation Waco",
-    "furnace repair Central Texas",
-    "heating and cooling Waco TX",
-    "HVAC contractor Hewitt TX",
-    "duct cleaning Waco",
-    "emergency AC repair Waco",
+    "EmberStack Chimney & Fireplace",
+    "chimney repair Waco TX",
+    "chimney sweep Waco Texas",
+    "chimney installation Waco",
+    "fireplace installation Central Texas",
+    "dryer vent cleaning Waco TX",
+    "chimney and fireplace company Hewitt TX",
+    "chimney repair Waco",
+    "emergency chimney repair Waco",
   ],
-  authors: [{ name: "Arctic Air HVAC", url: BASE_URL }],
-  creator: "Arctic Air HVAC",
-  publisher: "Arctic Air HVAC",
+  authors: [{ name: "EmberStack Chimney & Fireplace", url: BASE_URL }],
+  creator: "EmberStack Chimney & Fireplace",
+  publisher: "EmberStack Chimney & Fireplace",
   icons: {
     icon: [`${BASE_URL}/logos/favicon.ico?v=1`],
     apple: [`${BASE_URL}/logos/apple-touch-icon.png?v=1`],
     shortcut: [`${BASE_URL}/logos/apple-touch-icon.png?v=1`],
   },
   openGraph: {
-    title: "Arctic Air HVAC | AC Repair, Heating & Installation — Waco, TX",
+    title: "EmberStack Chimney & Fireplace | Chimney Sweep · Repair · Fireplace Install — Waco, TX",
     description:
-      "Waco-based HVAC company for AC repair, furnace service, new installations, and maintenance plans across Central Texas. Licensed & insured. No contracts.",
+      "Waco-based chimney and fireplace company for sweeps, repairs, fireplace installs, caps & dampers, dryer vents, and annual inspections across Central Texas. CSIA-certified & insured. Clean Sweep Guarantee.",
     url: BASE_URL,
-    siteName: "Arctic Air HVAC",
+    siteName: "EmberStack Chimney & Fireplace",
     images: [
       {
-        url: `${BASE_URL}/logos/arctic-air-banner.png?v=1`,
+        url: `${BASE_URL}/logos/scott-apps-banner.png?v=1`,
         width: 1200,
         height: 630,
-        alt: "Arctic Air HVAC — Waco TX Air Conditioning & Heating",
+        alt: "EmberStack Chimney & Fireplace — Waco TX Chimney Sweep & Installation",
       },
     ],
     locale: "en_US",
@@ -128,10 +128,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Arctic Air HVAC | Waco TX Heating & Cooling",
+    title: "EmberStack Chimney & Fireplace | Waco TX Chimney Pros",
     description:
-      "AC repair, heating service, new installations & maintenance plans for Central Texas. Licensed & insured — no contracts.",
-    images: [`${BASE_URL}/logos/arctic-air-banner.png?v=1`],
+      "Chimney sweep, repair, fireplace installation & more for Central Texas. CSIA-certified & insured — Clean Sweep Guarantee.",
+    images: [`${BASE_URL}/logos/scott-apps-banner.png?v=1`],
   },
   robots: {
     index: true,
@@ -155,27 +155,27 @@ const ratingValue = "5.0";
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
-  "@type": "HVACBusiness",
+  "@type": "HomeAndConstructionBusiness",
   "@id": `${BASE_URL}/#organization`,
-  name: "Arctic Air HVAC",
-  alternateName: "Arctic Air Heating & Cooling",
+  name: "EmberStack Chimney & Fireplace",
+  alternateName: "EmberStack Chimney & Fireplace Waco",
   description:
-    "Residential and commercial HVAC services in Waco and Central Texas — AC repair, heating, new installations, duct cleaning, and maintenance plans. Licensed, insured, no contracts.",
+    "Residential and commercial chimney and fireplace services in Waco and Central Texas — chimney sweep, chimney repair, fireplace installation, caps & dampers, dryer vent cleaning, and annual inspections. CSIA-certified sweeps, bonded & insured, Clean Sweep Guarantee · Fully Insured.",
   url: BASE_URL,
-  telephone: "+12549001234",
-  email: "contact@arcticairhvac.com",
-  foundingDate: "2010",
+  telephone: "+12548404040",
+  email: "hello@emberstackchimney.com",
+  foundingDate: "2006",
   founder: {
     "@type": "Person",
-    name: "Mike Hawkins",
-    jobTitle: "Owner & Master HVAC Technician",
+    name: "Hank Collier",
+    jobTitle: "Owner & Lead Chimney Technician",
   },
   address: {
     "@type": "PostalAddress",
-    streetAddress: "4521 Bosque Blvd",
+    streetAddress: "1500 N 15th St",
     addressLocality: "Waco",
     addressRegion: "TX",
-    postalCode: "76710",
+    postalCode: "76707",
     addressCountry: "US",
   },
   geo: {
@@ -201,24 +201,22 @@ const localBusinessSchema = {
     { "@type": "City", name: "Waco",        containedInPlace: { "@type": "State", name: "Texas" } },
     { "@type": "City", name: "Hewitt",       containedInPlace: { "@type": "State", name: "Texas" } },
     { "@type": "City", name: "Woodway",      containedInPlace: { "@type": "State", name: "Texas" } },
-    { "@type": "City", name: "Robinson",     containedInPlace: { "@type": "State", name: "Texas" } },
+    { "@type": "City", name: "Bellmead",     containedInPlace: { "@type": "State", name: "Texas" } },
     { "@type": "City", name: "China Spring", containedInPlace: { "@type": "State", name: "Texas" } },
-    { "@type": "City", name: "Hillsboro",    containedInPlace: { "@type": "State", name: "Texas" } },
+    { "@type": "City", name: "McGregor",     containedInPlace: { "@type": "State", name: "Texas" } },
     { "@type": "City", name: "Temple",       containedInPlace: { "@type": "State", name: "Texas" } },
     { "@type": "City", name: "Killeen",      containedInPlace: { "@type": "State", name: "Texas" } },
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "HVAC Services",
+    name: "Chimney & Fireplace Services",
     itemListElement: [
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "AC Repair" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "AC Installation" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Heating Repair" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Furnace Installation" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Duct Cleaning" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "HVAC Maintenance Plans" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Indoor Air Quality" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Smart Thermostat Installation" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Chimney Sweep" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Chimney Repair" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Fireplace Installation" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Caps & Dampers" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Annual Inspections" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Dryer Vent Cleaning" } },
     ],
   },
   aggregateRating: {
@@ -232,7 +230,7 @@ const localBusinessSchema = {
   currenciesAccepted: "USD",
   paymentAccepted: "Cash, Credit Card, Check, Financing",
   sameAs: [
-    "https://www.facebook.com/arcticairhvac",
+    "https://www.facebook.com/emberstackchimney",
     "https://www.google.com/maps/?cid=placeholder",
   ],
 };
@@ -259,7 +257,7 @@ export default function RootLayout({
           <Header />
         </ConditionalShell>
 
-        <NextTopLoader color="#f97316" showSpinner={false} />
+        <NextTopLoader color="#9a3412" showSpinner={false} />
 
         <Suspense fallback={null}>
           <Analytics />
@@ -275,10 +273,10 @@ export default function RootLayout({
                   alignItems: "center",
                   width: "100%",
                   height: "100vh",
-                  background: "#0a130a",
+                  background: "#0d1b2a",
                 }}
               >
-                <PulseLoader size={50} color="#f97316" />
+                <PulseLoader size={50} color="#9a3412" />
               </div>
             }
           >

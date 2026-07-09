@@ -27,7 +27,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCircleCheck, faExclamationTriangle, faArrowRight,
   faPhone, faStar, faShieldHalved, faClock, faTag,
-  faFan, faFire, faWrench, faFilter, faThermometerHalf, faWind, faBolt,
+  faWrench, faLink, faDoorOpen, faCogs, faClipboardList, faBuilding, faBolt,
 } from '@fortawesome/free-solid-svg-icons';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getJourneyContext } from '&/useJourneyTracker';
@@ -38,12 +38,12 @@ interface Variant1Props {
 }
 
 const SERVICES = [
-  { icon: faFan,             label: 'AC Repair' },
-  { icon: faFire,            label: 'Heating / Furnace' },
-  { icon: faWrench,          label: 'New Installation' },
-  { icon: faFilter,          label: 'Duct Cleaning' },
-  { icon: faThermometerHalf, label: 'Maintenance' },
-  { icon: faWind,            label: 'Air Quality' },
+  { icon: faWrench,          label: 'Chimney Sweep' },
+  { icon: faLink,            label: 'Chimney Repair' },
+  { icon: faDoorOpen,        label: 'Fireplace Install' },
+  { icon: faCogs,            label: 'Caps & Dampers' },
+  { icon: faClipboardList,   label: 'Annual Inspection' },
+  { icon: faBuilding,        label: 'Dryer Vent Cleaning' },
   { icon: faBolt,            label: 'Emergency' },
 ];
 
@@ -51,8 +51,8 @@ const SERVICES = [
 const TRUST_CHIPS = [
   { icon: faClock,        text: 'Same-day available' },
   { icon: faTag,          text: 'Flat-rate pricing' },
-  { icon: faShieldHalved, text: 'NATE · TDLR' },
-  { icon: faStar,         text: '4.9★ · 300+ reviews' },
+  { icon: faShieldHalved, text: 'IDA · Insured' },
+  { icon: faStar,         text: '4.9★ · 950+ reviews' },
 ];
 
 export default function Variant1({ title, cityName, slug, spot, formVariant }: Variant1Props) {
@@ -133,7 +133,7 @@ export default function Variant1({ title, cityName, slug, spot, formVariant }: V
                 </div>
                 <h3 className={styles.successTitle}>Request Received!</h3>
                 <p className={styles.successText}>
-                  A licensed Arctic Air technician will reach out shortly. Keep an eye on your inbox and phone.
+                  A licensed EmberStack Chimney & Fireplace technician will reach out shortly. Keep an eye on your inbox and phone.
                 </p>
                 <div className={styles.successBadges}>
                   <span>✓ Flat-rate quote</span>
@@ -206,9 +206,9 @@ export default function Variant1({ title, cityName, slug, spot, formVariant }: V
                     <div className={styles.altContact}>
                       <FontAwesomeIcon icon={faPhone} />
                       <span>Need help now?{' '}
-                        <a href="tel:+12549001234"
-                          onClick={() => trackEvent({ eventType: 'phone_click', elementLabel: 'Call (254) 900-1234', section: 'ContactForm-V1' })}>
-                          Call (254) 900-1234
+                        <a href="tel:+12548404040"
+                          onClick={() => trackEvent({ eventType: 'phone_click', elementLabel: 'Call (254) 840-4040', section: 'ContactForm-V1' })}>
+                          Call (254) 840-4040
                         </a>
                       </span>
                     </div>
