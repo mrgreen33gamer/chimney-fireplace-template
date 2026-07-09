@@ -1,82 +1,90 @@
 // libs/local-db/reviews.ts
-// ─────────────────────────────────────────────────────────────────────────────
-// Static testimonials for Arctic Air HVAC — used by Testimonials component,
-// schema markup, and aggregate rating in layout.tsx.
-// ─────────────────────────────────────────────────────────────────────────────
+//
+// Static testimonials for EmberStack Chimney & Fireplace — used by Testimonials component,
+// homepage, service pages, and JSON-LD aggregateRating via review count.
 
 export interface Review {
+  id:       string;
   name:     string;
   location: string;
   rating:   number;
-  date:     string;
   text:     string;
+  date:     string;
   service?: string;
 }
 
 const reviews: Review[] = [
   {
-    name:     'Marcus T.',
+    id:       '1',
+    name:     'Rachel M.',
     location: 'Waco, TX',
     rating:   5,
-    date:     'March 2026',
-    service:  'AC Replacement',
-    text:     "Our old unit finally gave out in the middle of a Texas summer. Arctic Air had a new system installed within 48 hours. The tech explained everything clearly, pricing was upfront, and the house has never been this comfortable. I can't recommend them enough.",
+    text:     "Our fireplace was smoking into the room every time we lit a fire. EmberStack found a heavy creosote buildup and a damaged damper, swept the flue, and fixed the damper the same visit. Clean Sweep Guarantee and clear pricing. Highly recommend.",
+    date:     '2026-06-12',
+    service:  'Chimney Sweep',
   },
   {
-    name:     'Sandra K.',
+    id:       '2',
+    name:     'Derek T.',
     location: 'Hewitt, TX',
     rating:   5,
-    date:     'February 2026',
-    service:  'Heating Repair',
-    text:     'Woke up at 6am to a cold house with the heater completely out. Called Arctic Air and they had someone at my door by 9am. Fixed the same day, fair price. This is the kind of service you tell your neighbors about.',
+    text:     "Called about a cracked chimney crown after a storm. Hank's crew was at our house the next morning, documented everything with photos, and rebuilt the crown without a mess. Fair price and very professional.",
+    date:     '2026-05-28',
+    service:  'Chimney Repair',
   },
   {
-    name:     'James R.',
+    id:       '3',
+    name:     'Amanda K.',
     location: 'Woodway, TX',
     rating:   5,
-    date:     'January 2026',
-    service:  'Annual Maintenance Plan',
-    text:     'Been on their maintenance plan for two years now. They come out twice a year, always on time, always thorough. Caught a refrigerant issue last fall before it became a $3,000 emergency. The plan pays for itself every single year.',
+    text:     "We wanted a gas insert for our old masonry fireplace. EmberStack walked us through options, venting requirements, and finish details — no hard sell. Install looked factory-clean and the house stayed tidy.",
+    date:     '2026-05-10',
+    service:  'Fireplace Installation',
   },
   {
-    name:     'Patricia L.',
-    location: 'Robinson, TX',
-    rating:   5,
-    date:     'December 2025',
-    service:  'New Installation',
-    text:     'Had three companies quote us. Arctic Air was honest about what size system we actually needed — not just upselling the biggest unit. The install was clean, fast, and our energy bill dropped by almost 30% the first month.',
-  },
-  {
-    name:     'David M.',
-    location: 'China Spring, TX',
-    rating:   5,
-    date:     'November 2025',
-    service:  'Duct Cleaning',
-    text:     'We had duct cleaning done before winter and the difference in air quality was immediate. My wife has allergies and she said it was the best she\'d breathed indoors in years. Great crew, very professional, left the house spotless.',
-  },
-  {
-    name:     'Angela W.',
+    id:       '4',
+    name:     'James P.',
     location: 'Temple, TX',
     rating:   5,
-    date:     'October 2025',
-    service:  'AC Repair',
-    text:     'AC went down on a Friday afternoon. I expected to wait all weekend but they came out Friday evening, diagnosed the problem fast, and had the part the next morning. No after-hours gouge either — totally fair rate. My new HVAC company for life.',
+    text:     "Animals had nested in our chimney. They installed a proper cap and spark arrestor, cleaned the flue, and checked the damper. No more critters, no more rain. Done right the first time.",
+    date:     '2026-04-22',
+    service:  'Caps & Dampers',
   },
   {
-    name:     'Robert H.',
+    id:       '5',
+    name:     'Sofia R.',
+    location: 'China Spring, TX',
+    rating:   5,
+    text:     "Our dryer was taking forever and the exterior vent was packed with lint. EmberStack cleaned the full run and showed us before/after photos. Clothes dry faster and I feel safer about fire risk.",
+    date:     '2026-04-05',
+    service:  'Dryer Vent Cleaning',
+  },
+  {
+    id:       '6',
+    name:     'Michael B.',
     location: 'Killeen, TX',
     rating:   5,
-    date:     'September 2025',
-    service:  'Smart Thermostat Install',
-    text:     'Got a Nest installed and properly configured by Arctic Air. They set up the schedule for our family and showed us how to use the app. The tech was patient and knowledgeable — didn\'t feel rushed at all. Highly recommend.',
+    text:     "Booked an annual inspection before burn season. They were thorough, CSIA-certified, and explained Level 1 findings in plain English. Scheduling was easy and they showed up on time.",
+    date:     '2026-03-18',
+    service:  'Annual Inspections',
   },
   {
-    name:     'Cheryl B.',
-    location: 'Waco, TX',
+    id:       '7',
+    name:     'Lauren H.',
+    location: 'McGregor, TX',
     rating:   5,
-    date:     'August 2025',
-    service:  'Emergency Repair',
-    text:     'Called them at 10pm on a 102-degree day when our AC died. They answered immediately, had someone out within the hour, and fixed it that night. I have two small kids at home — this company genuinely saved us. Thank you.',
+    text:     "Creosote was thicker than we expected after years of burning. The sweep was careful, contained the soot, and left our living room spotless. Will use EmberStack every year.",
+    date:     '2026-02-27',
+    service:  'Chimney Sweep',
+  },
+  {
+    id:       '8',
+    name:     'Chris W.',
+    location: 'Bellmead, TX',
+    rating:   5,
+    text:     "Property manager here — EmberStack handles multi-unit fireplace and dryer-vent work for our portfolio. COIs on file, volume pricing, and tenants love the communication.",
+    date:     '2026-02-08',
+    service:  'Property Management',
   },
 ];
 

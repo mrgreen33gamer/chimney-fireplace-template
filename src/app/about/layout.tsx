@@ -1,93 +1,68 @@
-// src/app/about/layout.tsx
 import type { Metadata } from "next";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://hvac-pro-template.vercel.app';
-const url      = `${BASE_URL}/about`;
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.emberstackchimney.com';
+const url = `${BASE_URL}/about`;
 
 export const metadata: Metadata = {
-  title: "About Arctic Air HVAC — Waco TX Heating & Cooling Company Since 2010",
+  title: "About EmberStack Chimney & Fireplace — Waco TX Chimney & Fireplace Company Since 2006",
   description:
-    "Meet the Arctic Air HVAC team. Locally owned and operated in Waco, Texas since 2010. NATE-certified technicians, TDLR-licensed, honest pricing, and a 1-year warranty on every repair. Serving Waco, Hewitt, Woodway, Robinson, and all of Central Texas.",
+    "Meet the EmberStack Chimney & Fireplace team. Locally owned and operated in Waco, Texas since 2006. CSIA-certified sweeps, bonded & insured, honest pricing, and a Clean Sweep Guarantee · Fully Insured. Serving Waco, Hewitt, Woodway, Temple, Killeen, and all of Central Texas.",
   keywords: [
-    "about Arctic Air HVAC",
-    "Waco HVAC company",
-    "HVAC contractor Waco TX",
-    "locally owned HVAC Waco",
-    "NATE certified HVAC Waco Texas",
-    "Central Texas heating cooling company",
-    "HVAC company history Waco",
-    "Mike Hawkins Arctic Air HVAC",
+    "about EmberStack Chimney & Fireplace",
+    "Waco chimney and fireplace company",
+    "chimney contractor Waco TX",
+    "locally owned chimney Waco",
+    "CSIA-certified chimney Waco Texas",
+    "Hank Collier EmberStack Chimney & Fireplace",
   ],
   alternates: { canonical: url },
   openGraph: {
-    title: "About Arctic Air HVAC — Waco TX Heating & Cooling Company Since 2010",
+    title: "About EmberStack Chimney & Fireplace — Waco TX Chimney & Fireplace Company Since 2006",
     description:
-      "Locally owned and operated in Waco since 2010. NATE-certified, TDLR-licensed, flat-rate pricing, 1-year warranty on every repair. Serving all of Central Texas.",
+      "Locally owned chimney and fireplace company in Waco, TX. CSIA-certified, flat-rate pricing, Clean Sweep Guarantee · Fully Insured.",
     url,
-    siteName: "Arctic Air HVAC",
+    siteName: "EmberStack Chimney & Fireplace",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Arctic Air HVAC — Waco TX Since 2010",
-    description:
-      "Locally owned HVAC company in Waco, TX. NATE-certified, flat-rate pricing, 1-year repair warranty.",
+    title: "About EmberStack Chimney & Fireplace — Waco TX Since 2006",
+    description: "Locally owned chimney and fireplace company in Waco, TX. CSIA-certified, flat-rate pricing.",
   },
-  robots: { index: true, follow: true },
 };
 
-const localBusinessSchema = {
+const aboutSchema = {
   "@context": "https://schema.org",
-  "@type": "HVACBusiness",
+  "@type": "HomeAndConstructionBusiness",
   "@id": `${BASE_URL}/#organization`,
-  name: "Arctic Air HVAC",
+  name: "EmberStack Chimney & Fireplace",
   url: BASE_URL,
-  telephone: "+12549001234",
-  email: "contact@arcticairhvac.com",
-  foundingDate: "2010",
+  telephone: "+12548404040",
+  email: "hello@emberstackchimney.com",
+  foundingDate: "2006",
   founder: {
     "@type": "Person",
-    name: "Mike Hawkins",
-    jobTitle: "Owner & Master HVAC Technician",
+    name: "Hank Collier",
+    jobTitle: "Owner & Lead Chimney Technician",
   },
   address: {
     "@type": "PostalAddress",
-    streetAddress: "4521 Bosque Blvd",
+    streetAddress: "1500 N 15th St",
     addressLocality: "Waco",
     addressRegion: "TX",
-    postalCode: "76710",
+    postalCode: "76707",
     addressCountry: "US",
   },
-  areaServed: [
-    { "@type": "City", name: "Waco",         containedInPlace: { "@type": "State", name: "Texas" } },
-    { "@type": "City", name: "Hewitt",       containedInPlace: { "@type": "State", name: "Texas" } },
-    { "@type": "City", name: "Woodway",      containedInPlace: { "@type": "State", name: "Texas" } },
-    { "@type": "City", name: "Robinson",     containedInPlace: { "@type": "State", name: "Texas" } },
-    { "@type": "City", name: "China Spring", containedInPlace: { "@type": "State", name: "Texas" } },
-    { "@type": "City", name: "Temple",       containedInPlace: { "@type": "State", name: "Texas" } },
-    { "@type": "City", name: "Killeen",      containedInPlace: { "@type": "State", name: "Texas" } },
-    { "@type": "City", name: "Valley Mills", containedInPlace: { "@type": "State", name: "Texas" } },
-  ],
   sameAs: [
-    "https://www.facebook.com/arcticairhvac",
-  ],
-};
-
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home",  item: BASE_URL },
-    { "@type": "ListItem", position: 2, name: "About", item: url },
+    "https://www.facebook.com/emberstackchimney",
   ],
 };
 
 export default function AboutLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }} />
       {children}
     </>
   );

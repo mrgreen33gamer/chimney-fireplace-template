@@ -1,13 +1,4 @@
-// Arctic Air HVAC — Homepage
-// Phase 2: Reshuffled component order + fresh content
-// Original order: WelcomePage → TrustBar → ServiceCards → WhatToExpect → WhyChooseUs
-//                 → ProcessTimeline → ImpactMetrics → Testimonials → GuaranteeSection
-//                 → LocalServiceAreas → FAQ → CTABanner → BlogPreview → Form
-//
-// New order:      WelcomePage → TrustBar → ImpactMetrics → ServiceCards
-//                 → WhyChooseUs → CTABanner (mid) → ProcessTimeline → Testimonials
-//                 → GuaranteeSection → LocalServiceAreas → WhatToExpect → FAQ
-//                 → BlogPreview → Form
+// EmberStack Chimney & Fireplace — Homepage
 "use client";
 
 import styles from "./page.module.scss";
@@ -28,292 +19,195 @@ import FAQ                from "#/PageComponents/FAQ/FAQ";
 import BlogPreviewGrid    from "#/PageComponents/BlogPreviewGrid/BlogPreviewGrid";
 
 import {
-  faFan, faFire, faWrench, faFilter, faThermometerHalf, faWind,
+  faFire, faHammer, faHome, faShieldHalved, faWind, faClipboardCheck,
   faTrophy, faChartLine, faClock,
-  faBolt, faShieldHalved, faUsers,
+  faUsers,
   faHeadset, faSearch, faFileContract, faCheckCircle,
-  faFileAlt, faRotateLeft, faLock, faStar,
+  faStar,
+  faWrench,
 } from "@fortawesome/free-solid-svg-icons";
 import Variant4 from "#/PageComponents/ContactForms/Variant4/Form";
 
 export default function HomePage() {
 
-  // ── Services ────────────────────────────────────────────────────────────────
   const services = [
     {
-      icon: faFan,
-      title: "AC Repair",
-      body: "Same-day diagnosis on all makes and models. We stock common parts on every truck — most repairs completed in one visit.",
-      link: "/services/ac-repair",
-    },
-    {
       icon: faFire,
-      title: "Heating & Furnace",
-      body: "Gas furnaces, heat pumps, dual-fuel systems — repaired fast with a full CO safety inspection on every heating call.",
-      link: "/services/heating",
+      title: "Chimney Sweep",
+      body: "Professional sweeping to remove creosote, soot, and debris. Safer fires, better draft, and a cleaner flue — most homes done in a single visit.",
+      link: "/services/chimney-sweep",
     },
     {
-      icon: faWrench,
-      title: "New Installation",
-      body: "Right-sized system selection, clean installation, full commissioning. We never upsell equipment you don't need.",
-      link: "/services/installation",
+      icon: faHammer,
+      title: "Chimney Repair",
+      body: "Crown, flashing, masonry, liner, and smoke-chamber repairs that stop leaks and restore structural integrity for Central Texas weather.",
+      link: "/services/chimney-repair",
     },
     {
-      icon: faFilter,
-      title: "Duct Cleaning",
-      body: "Full system clean and sanitize — removes years of buildup, improves airflow, and makes a real difference for allergy sufferers.",
-      link: "/services/duct-cleaning",
-    },
-    {
-      icon: faThermometerHalf,
-      title: "Maintenance Plans",
-      body: "Two tune-ups per year, 15% off repairs, priority emergency scheduling. Month-to-month — cancel anytime.",
-      link: "/services/maintenance",
-    },
-    {
-      icon: faWind,
-      title: "Indoor Air Quality",
-      body: "UV purifiers, whole-home humidifiers, HEPA-grade filtration. Breathe cleaner air in every room of your home.",
-      link: "/services/indoor-air-quality",
-    },
-  ];
-
-  // ── Impact metrics (moved up — builds trust before selling) ─────────────────
-  const metrics = [
-    { icon: faTrophy,    value: 2400, label: "Homes and businesses served in Central Texas", suffix: "+", duration: 3 },
-    { icon: faClock,     value: 15,   label: "Years of local HVAC experience",               suffix: "+", duration: 2 },
-    { icon: faChartLine, value: 98,   label: "Customer satisfaction rating",                 suffix: "%", duration: 2 },
-  ];
-
-  // ── Why Choose Us (3 differentiators) ───────────────────────────────────────
-  const whyFeatures = [
-    {
-      icon: faBolt,
-      title: "Emergency Service — Any Hour",
-      description: "AC out at 11pm on a Saturday in July? We answer. Emergency dispatch is available 7 days a week, evenings included. Central Texas heat doesn't wait, and neither do we.",
+      icon: faHome,
+      title: "Fireplace Installation",
+      body: "Wood, gas, and insert installations sized for your home — clean finishes, proper venting, and code-compliant setup from start to finish.",
+      link: "/services/fireplace-install",
     },
     {
       icon: faShieldHalved,
-      title: "NATE-Certified, TDLR-Licensed",
-      description: "Every technician on our crew holds NATE certification and a valid Texas TDLR license. No unlicensed subs, no shortcuts. Your home is protected from the first call to the final invoice.",
+      title: "Caps & Dampers",
+      body: "Chimney caps, spark arrestors, and damper systems that block animals, rain, and downdrafts while protecting the flue long-term.",
+      link: "/services/cap-damper",
     },
     {
-      icon: faUsers,
-      title: "Locally Owned Since 2010",
-      description: "We're not a franchise. Arctic Air was founded in Waco by Mike Hawkins, a Waco native with 20+ years in the trade. Every decision is made locally, and every call is answered by someone who lives here.",
+      icon: faWind,
+      title: "Dryer Vent Cleaning",
+      body: "Full dryer vent cleaning to cut fire risk, restore drying efficiency, and clear lint buildup from the drum to the exterior termination.",
+      link: "/services/dryer-vent",
+    },
+    {
+      icon: faClipboardCheck,
+      title: "Annual Inspections",
+      body: "Level 1–2 chimney inspections with photo documentation so you know exactly what is safe, what needs attention, and what can wait.",
+      link: "/services/annual-inspection",
     },
   ];
 
-  // ── How it works (process) ───────────────────────────────────────────────────
+  const metrics = [
+    { icon: faTrophy,    value: 7500, label: "Chimneys serviced across Central Texas", suffix: "+", duration: 3 },
+    { icon: faClock,     value: 20,   label: "Years of local chimney experience", suffix: "+", duration: 2 },
+    { icon: faChartLine, value: 98,   label: "Customer satisfaction rating",          suffix: "%", duration: 2 },
+  ];
+
+  const whyFeatures = [
+    {
+      icon: faClipboardCheck,
+      title: "Flat-Rate Written Quotes",
+      description: "You get a firm price before we sweep, repair, or install. No hourly billing, no surprise add-ons mid-job.",
+    },
+    {
+      icon: faShieldHalved,
+      title: "CSIA-Certified Sweeps",
+      description: "Every tech is CSIA-certified, bonded, and insured. No unlicensed freelancers working alone on your chimney.",
+    },
+    {
+      icon: faUsers,
+      title: "Locally Owned Since 2006",
+      description: "We're not a franchise. EmberStack Chimney & Fireplace was founded in Waco by Hank Collier. Every decision is made locally.",
+    },
+  ];
+
   const processSteps = [
     {
       number: 1,
       title: "Call or Book Online",
-      description: "Phone, text, or the form below — your choice. We'll confirm a same-day or next-day appointment that fits your schedule.",
+      description: "Phone, text, or the form below — your choice. We'll confirm a same-day or next-day slot that fits your schedule.",
       icon: faHeadset,
     },
     {
       number: 2,
-      title: "Tech Arrives On Time",
-      description: "Uniformed, background-checked tech shows up in the window we promised. Full system diagnosis — explained in plain English, not HVAC jargon.",
+      title: "We Inspect On-Site",
+      description: "A CSIA-certified sweep inspects the chimney or fireplace, explains findings in plain English, and shows options — not just the most expensive one.",
       icon: faSearch,
     },
     {
       number: 3,
       title: "You Get a Flat-Rate Quote",
-      description: "Written price before we touch anything. You decide — zero pressure to proceed. The quote covers parts and labor, and it never changes mid-job.",
+      description: "Written price before any work starts. You decide — zero pressure to proceed. The quote never changes mid-job.",
       icon: faFileContract,
     },
     {
       number: 4,
-      title: "Done Right, Warranted",
-      description: "Quality parts, clean worksite, 1-year parts and labor warranty on every repair. We leave when you're satisfied — not when we feel like it.",
+      title: "Done Right, Guaranteed",
+      description: "Quality workmanship, thorough cleanup, Clean Sweep Guarantee · Fully Insured. We leave when you're satisfied.",
       icon: faCheckCircle,
     },
   ];
 
-  // ── What to expect (moved lower — reinforces process detail after trust built) ─
   const expectations = [
     {
       icon: faSearch,
-      title: "Honest System Assessment",
-      description: "We diagnose what's actually wrong — not what's most profitable to fix. You see the findings before we recommend anything.",
+      title: "Honest Chimney Assessment",
+      description: "We diagnose what's actually wrong — not what's most profitable to sell. You see the findings before we quote anything.",
     },
     {
       icon: faWrench,
-      title: "Clean, Respectful Service",
-      description: "Shoe covers on, work area protected, home left exactly as we found it. Every single visit.",
+      title: "Clean, Respectful Work",
+      description: "Drop cloths down, hearth protected, soot contained. Your home left cleaner than when we arrived.",
     },
     {
       icon: faCheckCircle,
       title: "Upfront Flat-Rate Price",
-      description: "Written quote before any work starts. The number doesn't change when the job runs long — that's our problem, not yours.",
+      description: "Written quote before any work begins. The number doesn't change when the job runs long — that's our problem, not yours.",
     },
     {
       icon: faStar,
-      title: "Manufacturer-Quality Parts",
-      description: "We use OEM-grade parts on every repair, backed by the full 1-year warranty. No gray-market components, no shortcuts.",
+      title: "Safety-First Standards",
+      description: "CSIA methods, proper PPE, and photo documentation so you know your flue is safe for the next burn season.",
     },
   ];
 
-  // ── Service areas ────────────────────────────────────────────────────────────
   const localAreas = [
-    { town: "Waco",         benefit: "Home base — fastest dispatch and most available techs in the city.", badge: "Home Base" },
-    { town: "Hewitt",       benefit: "Full residential and commercial coverage. On our regular route.",     badge: "" },
-    { town: "Woodway",      benefit: "Same-day availability for Woodway homes and businesses.",             badge: "" },
-    { town: "Robinson",     benefit: "Regular service area — quick turnaround guaranteed.",                 badge: "" },
-    { town: "China Spring", benefit: "Rural coverage, no trip charge for most China Spring addresses.",     badge: "" },
-    { town: "Killeen",      benefit: "Full coverage for Killeen and Fort Cavazos area customers.",          badge: "" },
+    { town: "Waco",         benefit: "Home base — fastest scheduling and most available sweeps in the city.", badge: "Home Base" },
+    { town: "Hewitt",       benefit: "Full residential coverage. On our regular route.",      badge: "" },
+    { town: "Woodway",      benefit: "Regular availability for Woodway homes and estates.",               badge: "" },
+    { town: "Temple",       benefit: "Regular service area — quick turnaround guaranteed.",                  badge: "" },
+    { town: "China Spring", benefit: "Rural coverage, no trip charge for most China Spring addresses.",      badge: "" },
+    { town: "Killeen",      benefit: "Full chimney & fireplace service for Bell County homes.", badge: "" },
   ];
 
-  // ── FAQ ──────────────────────────────────────────────────────────────────────
   const faq = [
     {
-      question: "How much does AC repair cost in Waco?",
-      answer: "Most repairs run $150–$650 depending on the issue. Capacitors and contactors are typically $150–$250. Refrigerant recharges run $250–$500. We always provide a flat-rate written quote before starting — the diagnostic fee is waived when you proceed.",
+      question: "How often should I have my chimney swept in Texas?",
+      answer: "Most wood-burning chimneys need a sweep at least once a year — ideally before burn season. Heavy use, softwoods, or visible creosote may require more frequent service. Gas fireplaces still need annual inspection for venting and safety.",
     },
     {
-      question: "Do you offer emergency HVAC service?",
-      answer: "Yes — 7 days a week including evenings and weekends. In Central Texas heat, a broken AC is a genuine emergency. Call us anytime at (254) 900-1234.",
+      question: "Do you offer same-day chimney service in Waco?",
+      answer: "Yes. We dispatch from Waco and often have same-day or next-day openings for sweeps, inspections, and urgent repairs. Call (254) 840-4040 for availability.",
     },
     {
-      question: "How quickly can you come out?",
-      answer: "Same-day service is available most days. Emergency calls are dispatched within 1–2 hours. We'll give you an honest ETA when you call — not a 4-hour window.",
+      question: "What is the Clean Sweep Guarantee?",
+      answer: "We stand behind our workmanship. If our sweep or repair work fails to meet the standard we promised, we return to make it right — fully insured, no runaround.",
     },
     {
-      question: "What brands do you service?",
-      answer: "All major brands — Carrier, Trane, Lennox, Rheem, Goodman, York, Daikin, and more. We install Carrier and Trane as our preferred brands for new systems.",
+      question: "Can you install a gas fireplace insert?",
+      answer: "Yes. We install wood, gas, and insert systems with proper venting, clearances, and finish work. You'll get a flat-rate quote before we start.",
     },
     {
-      question: "Are you licensed and insured in Texas?",
-      answer: "Yes — fully licensed by the Texas Department of Licensing and Regulation (TDLR), bonded, and insured. All technicians are NATE-certified. License number available on request.",
+      question: "Do you clean dryer vents too?",
+      answer: "Yes — dryer vent cleaning is one of our core services. Lint buildup is a leading household fire risk; we clear the full run from dryer to exterior.",
     },
     {
-      question: "Do you offer financing for new systems?",
-      answer: "Yes — flexible financing with approved credit, including 0% interest options for qualifying homeowners. Ask us when you get your quote.",
+      question: "Are your technicians CSIA-certified?",
+      answer: "Yes. EmberStack sweeps are CSIA-certified, bonded, and insured. No unlicensed subcontractors working alone on your home.",
     },
-  ];
-
-  // ── TrustBar badges (HVAC-specific) ─────────────────────────────────────────
-  const trustBadges = [
-    { icon: faStar,          label: "5.0 Google Rating",    sub: "200+ Reviews" },
-    { icon: faShieldHalved,  label: "TDLR Licensed",        sub: "Texas Certified" },
-    { icon: faTrophy,        label: "NATE Certified",       sub: "All Technicians" },
-    { icon: faClock,         label: "Same-Day Service",     sub: "7 Days a Week" },
-    { icon: faBolt,          label: "Emergency Available",  sub: "Evenings & Weekends" },
-    { icon: faFileAlt,       label: "Flat-Rate Pricing",    sub: "No Surprises" },
-    { icon: faRotateLeft,    label: "1-Year Warranty",      sub: "Parts & Labor" },
-    { icon: faLock,          label: "No Contracts",         sub: "Month-to-Month" },
-    { icon: faWrench,        label: "All Brands Serviced",  sub: "Any Make & Model" },
-    { icon: faUsers,         label: "Locally Owned",        sub: "Since 2010" },
   ];
 
   return (
     <main className={styles.pageWrapper}>
-
-      {/* 1. Hero */}
       <WelcomePage />
-
-      {/* 2. Scrolling trust strip — immediately after hero */}
-      <TrustBar
-        headline="Waco's trusted HVAC company — licensed, insured, and warrantied on every job"
+      <TrustBar headline="Central Texas trusts EmberStack for safe chimneys and fireplaces" />
+      <ImpactMetrics metrics={metrics} title="Numbers That Matter" cityName="Waco" />
+      <ServiceCardComponent
+        cards={services}
+        heading="Chimney & Fireplace Services"
+        subheading="From annual sweeps to full fireplace installs — flat-rate pricing, CSIA-certified crews, Clean Sweep Guarantee."
       />
-
-      {/* 3. Impact metrics — build credibility before pitching services */}
-      <div className={styles.section}>
-        <ImpactMetrics
-          title="Numbers That Speak for Us"
-          metrics={metrics}
-          cityName="Waco"
-        />
-      </div>
-
-      {/* 4. Services grid */}
-      <div className={styles.section}>
-        <ServiceCardComponent
-          heading="Complete HVAC Services for Your Home"
-          cards={services}
-        />
-      </div>
-
-      {/* 5. Why Choose Us */}
-      <div className={styles.section}>
-        <WhyChooseUs
-          cityName="Waco"
-          features={whyFeatures}
-          title="What Makes Arctic Air Different"
-        />
-      </div>
-
-      {/* 14. Contact form — final conversion point */}
-      <div className={styles.section}>
-        <Variant4
-          title="Request Service or a Free Quote"
-          cityName="Waco"
-          slug="/"
-          spot="homepage-contact-form"
-          formVariant={2}
-        />
-      </div>
-
-      {/* 7. How it works — process after the CTA so urgency is set */}
-      <div className={styles.section}>
-        <ProcessTimeline steps={processSteps} />
-      </div>
-
-      {/* 8. Social proof — reviews before the guarantee promise */}
-      <div className={styles.section}>
-        <Testimonials testimonials={reviews} />
-      </div>
-
-      {/* 9. Guarantee — peer validation already done, now make the promise */}
-      <div className={styles.section}>
-        <GuaranteeSection />
-      </div>
-
-      {/* 6. Mid-page CTA — emergency hook before process details */}
+      <WhyChooseUs cityName="Waco" features={whyFeatures} title="Why Homeowners Choose EmberStack" />
+      <ProcessTimeline steps={processSteps} />
+      <WhatToExpect expectations={expectations} sectionTitle="What to Expect on Service Day" />
+      <GuaranteeSection />
+      <Testimonials testimonials={reviews} title="What Central Texas Homeowners Say" />
+      <LocalServiceAreas areas={localAreas} cityName="Waco" title="Service Areas" />
+      <FAQ cityName="Waco" faq={faq} />
+      <BlogPreviewGrid />
       <CTABanner
-        headline="AC Out or Heat Down? Call Us Right Now."
-        subline="Same-day and emergency service across Waco, Hewitt, Woodway, Robinson, and all of Central Texas. Flat-rate pricing. 1-year warranty."
-        primaryText="Call (254) 900-1234"
-        primaryLink="tel:+12549001234"
-        secondaryText="Book Online"
-        secondaryLink="/contact"
+        headline="Ready for a Safer, Cleaner Chimney?"
+        subline="Same-day appointments available. Flat-rate pricing — no hidden fees. Call now or grab a free estimate online."
       />
-
-
-      {/* 10. Service areas */}
-      <div className={styles.section}>
-        <LocalServiceAreas
-          cityName="Waco"
-          areas={localAreas}
-          servicePath=""
-          title="Serving All of Central Texas"
-        />
-      </div>
-
-      {/* 11. What to expect (detail reassurance — lower in page) */}
-      <div className={styles.section}>
-        <WhatToExpect
-          sectionTitle="Every Service Call, Every Time"
-          expectations={expectations}
-        />
-      </div>
-
-      {/* 12. FAQ */}
-      <div className={styles.section}>
-        <FAQ
-          cityName="Waco"
-          faq={faq}
-          title="HVAC Questions — Answered Straight"
-        />
-      </div>
-
-      {/* 13. Blog preview — educational content before the final form */}
-      <div className={styles.section}>
-        <BlogPreviewGrid />
-      </div>
-
+      <Variant4
+        title="Request Chimney Service"
+        cityName="Waco"
+        slug="home"
+        spot="homepage-form"
+        formVariant={4}
+      />
     </main>
   );
 }
