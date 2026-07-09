@@ -1,133 +1,234 @@
+// _archetype-library/hero-h-parallax/Component.tsx
+//
+// Hero H: Layered Parallax — foliage/gravel texture via CSS gradients + optional
+// textureSrc image layers. Scroll-linked depth on document.body (scroll container).
+// No discrete widget card — full-bleed layered texture behind left-aligned copy.
 'use client';
-import React, { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import Link from 'next/link';
+import { PhoneIcon, ChevronIcon, CheckIcon } from './_shared/icons';
 import styles from './styles.module.scss';
 
-// ── Particle canvas ───────────────────────────────────────────────────────────
-function ParticleCanvas() {
-  const ref = useRef<HTMLCanvasElement>(null);
+function useBodyScrollY() {
+  const scrollY = useMotionValue(0);
+
   useEffect(() => {
-    const canvas = ref.current; if (!canvas) return;
-    const ctx = canvas.getContext('2d'); if (!ctx) return;
-    const resize = () => { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; };
-    resize(); window.addEventListener('resize', resize);
-    const pts = Array.from({ length: 38 }, () => ({
-      x: Math.random() * canvas.width, y: Math.random() * canvas.height,
-      r: Math.random() * 5 + 0.5, vx: (Math.random() - 0.5) * 3,
-      vy: Math.random() * 0.25 + 0.06, o: Math.random() * 0.35 + 0.7,
-      flake: Math.random() > 0.3,
-    }));
-    let raf: number;
-    const draw = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      pts.forEach(p => {
-        ctx.save(); ctx.globalAlpha = p.o;
-        if (p.flake) {
-          ctx.strokeStyle = '#9a3412'; ctx.lineWidth = 0.6;
-          ctx.translate(p.x, p.y);
-          for (let i = 0; i < 6; i++) { ctx.rotate(Math.PI / 3); ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(0, p.r * 3.2); ctx.stroke(); }
-        } else { ctx.fillStyle = '#9a3412'; ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); ctx.fill(); }
-        ctx.restore();
-        p.x += p.vx; p.y += p.vy;
-        if (p.y > canvas.height + 10) { p.y = -10; p.x = Math.random() * canvas.width; }
-        if (p.x < -10) p.x = canvas.width + 10;
-        if (p.x > canvas.width + 10) p.x = -10;
-      });
-      raf = requestAnimationFrame(draw);
+    const read = () => {
+      // document.body is the scroll container in these templates
+      const y =
+        document.body.scrollTop ||
+        document.documentElement.scrollTop ||
+        window.scrollY ||
+        0;
+      scrollY.set(y);
     };
-    draw();
-    return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', resize); };
-  }, []);
-  return <canvas ref={ref} className={styles.particleCanvas} aria-hidden="true" />;
-}
+    read();
+    document.body.addEventListener('scroll', read, { passive: true });
+    window.addEventListener('scroll', read, { passive: true });
+    return () => {
+      document.body.removeEventListener('scroll', read);
+      window.removeEventListener('scroll', read);
+    };
+  }, [scrollY]);
 
-// ── Decorative meter ──────────────────────────────────────────────────────────
-function TempMeter() {
-  const [fill, setFill] = useState(0);
-  useEffect(() => { const t = setTimeout(() => setFill(88), 750); return () => clearTimeout(t); }, []);
-  return (
-    <div className={styles.thermo} aria-hidden="true">
-      <div className={styles.thermoColumn}>
-        <div className={styles.thermoTube}>
-          <motion.div
-            className={styles.thermoFill}
-            initial={{ height: '0%' }}
-            animate={{ height: `${fill}%` }}
-            transition={{ duration: 2.0, delay: 0.85, ease: [0.34, 1.2, 0.64, 1] }}
-          />
-        </div>
-        <div className={styles.thermoBulb} />
-      </div>
-      <div className={styles.thermoLabels}>
-        <span className={styles.thermoTop}>Safe</span>
-        <span className={styles.thermoMid}>Waco, TX</span>
-        <span className={styles.thermoBot}>Clean</span>
-      </div>
-    </div>
-  );
+  return scrollY;
 }
-
-const CHIPS = ['Same-Day Service', 'No Contracts', 'CSIA-Certified', '20+ Yrs Local', 'Clean Sweep Guarantee'];
 
 export default function WelcomePage() {
+const badgeText = 'Waco\'s Most Trusted Chimney Pros — Since 2006';
+const headlineLines = [
+  'Chimneys Swept.',
+  'Fires Made Safe.',
+];
+const headlineAccent = 'EmberStack Chimney & Fireplace.';
+const subheadline = 'Chimney Sweep · Repair · Fireplace Install. Flat-rate pricing. Same-day service. Clean Sweep Guarantee · Fully Insured. Serving Waco and Central Texas with CSIA-certified sweeps.';
+const primaryCta = { label: 'Call (254) 840-4040', href: 'tel:+12548404040' };
+const secondaryCta = { label: 'Free Estimate', href: '/contact' };
+const chips = [
+  'Same-Day Service',
+  'No Contracts',
+  'CSIA-Certified',
+  '20+ Yrs Local',
+  'Clean Sweep Guarantee',
+];
+const stats = [
+  {
+    "value": "500+",
+    "label": "Jobs Done"
+  },
+  {
+    "value": "4.9 ★",
+    "label": "Rating"
+  },
+  {
+    "value": "15+",
+    "label": "Years Local"
+  },
+  {
+    "value": "1-Yr",
+    "label": "Warranty"
+  }
+];
+const meterTarget = 72;
+const meterTopLabel = "Alert";
+const meterMidLabel = "Monitor";
+const meterBotLabel = "Secure";
+const particleColor = '#c2410c';
+const beforeImageSrc = '/pages/home/welcome/before.jpg';
+const afterImageSrc = '/pages/home/welcome/after.jpg';
+const beforeLabel = "Creosote build-up";
+const afterLabel = "Inspected clean";
+const mapCenterLabel = 'Service HQ';
+const mapPins = [
+  { label: 'Waco', x: 42, y: 48 },
+  { label: 'Temple', x: 68, y: 62 },
+  { label: 'Killeen', x: 58, y: 72 },
+];
+const coverageLabel = 'Central Texas coverage';
+const materials = [
+  { name: "Sweep", swatch: "#dc2626", imageSrc: "/pages/home/welcome/mat-1.jpg" },
+  { name: "Cap", swatch: "#ef4444", imageSrc: "/pages/home/welcome/mat-2.jpg" },
+  { name: "Damper", swatch: "#991b1b", imageSrc: "/pages/home/welcome/mat-3.jpg" },
+  { name: "Relining", swatch: "#fca5a5", imageSrc: "/pages/home/welcome/mat-1.jpg" },
+  { name: "Gas Log", swatch: "#7f1d1d", imageSrc: "/pages/home/welcome/mat-2.jpg" },
+  { name: "Insert", swatch: "#450a0a", imageSrc: "/pages/home/welcome/mat-3.jpg" }
+];
+const quote = "They sent a full photo report and replaced our cap the same week. Sleep better every cold night.";
+const authorName = "Tom B.";
+const authorMeta = "Chimney sweep · China Spring";
+const rating = 5;
+const schematicLabel = "EmberStack schematic";
+const gauges = [
+  { label: "Sweeps", value: "3,800+" },
+  { label: "Rating", value: "4.9 ★" },
+  { label: "Report", value: "Photos" },
+  { label: "Emergency", value: "Yes" }
+];
+const toggles = [
+  { label: "Licensed crew", on: true },
+  { label: "Same-week", on: true },
+  { label: "Warrantied", on: true }
+];
+const textureSrc = '/pages/home/welcome/hero-main.jpg';
+const textureAlt = 'Texture';
+const accentWord = "EmberStack";
+
+  const scrollY = useBodyScrollY();
+  const smoothY = useSpring(scrollY, { stiffness: 90, damping: 28, mass: 0.4 });
+
+  const layerFarY = useTransform(smoothY, [0, 500], [0, 90]);
+  const layerMidY = useTransform(smoothY, [0, 500], [0, 50]);
+  const layerNearY = useTransform(smoothY, [0, 500], [0, 22]);
+  const textureY = useTransform(smoothY, [0, 500], [0, 70]);
+  const vignetteOpacity = useTransform(smoothY, [0, 300], [0.55, 0.85]);
+
+  const [reducedMotion, setReducedMotion] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setReducedMotion(mq.matches);
+    const onChange = () => setReducedMotion(mq.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+
   return (
     <section className={styles.hero} aria-label="Hero">
-      <ParticleCanvas />
-      <div className={styles.shard} aria-hidden="true" />
+      {/* Full-bleed layered texture stack */}
+      <div className={styles.layers} aria-hidden="true">
+        <motion.div
+          className={`${styles.layer} ${styles.layerFar}`}
+          style={reducedMotion ? undefined : { y: layerFarY }}
+        />
+        <motion.div
+          className={`${styles.layer} ${styles.layerMid}`}
+          style={reducedMotion ? undefined : { y: layerMidY }}
+        />
+        {textureSrc ? (
+          <motion.div
+            className={`${styles.layer} ${styles.layerTexture}`}
+            style={reducedMotion ? undefined : { y: textureY }}
+          >
+            {/* Decorative texture layer — next/image optional when adapting into a template */}
+            <img src={textureSrc} alt={textureAlt} className={styles.textureImg} />
+          </motion.div>
+        ) : null}
+        <motion.div
+          className={`${styles.layer} ${styles.layerNear}`}
+          style={reducedMotion ? undefined : { y: layerNearY }}
+        />
+        <motion.div
+          className={styles.vignette}
+          style={reducedMotion ? undefined : { opacity: vignetteOpacity }}
+        />
+        <div className={styles.grain} />
+      </div>
 
       <div className={styles.layout}>
-
         <div className={styles.content}>
-          <motion.div className={styles.badge}
-            initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}>
+          <motion.div
+            className={styles.badge}
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
             <span className={styles.badgeDot} />
-            Waco&apos;s Most Trusted Chimney Pros — Since 2006
+            {badgeText}
           </motion.div>
 
-          <motion.h1 className={styles.headline}
-            initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}>
-            Chimneys Swept.<br />Fires Made Safe.<br />
-            <span className={styles.accentLine}>EmberStack Chimney & Fireplace.</span>
+          <motion.h1
+            className={styles.headline}
+            initial={{ opacity: 0, y: 22 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            {headlineLines.map((line, i) => (
+              <React.Fragment key={i}>{line}<br /></React.Fragment>
+            ))}
+            <span className={styles.accentLine}>{headlineAccent}</span>
           </motion.h1>
 
-          <motion.p className={styles.sub}
-            initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.22 }}>
-            Chimney Sweep · Repair · Fireplace Install. Flat-rate pricing. Same-day service.
-            Clean Sweep Guarantee · Fully Insured. Serving Waco and Central Texas with CSIA-certified sweeps.
+          <motion.p
+            className={styles.sub}
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.22 }}
+          >
+            {subheadline}
           </motion.p>
 
-          <motion.div className={styles.ctaRow}
-            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.34 }}>
-            <a href="tel:+12548404040" className={styles.ctaPrimary}>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.17 12a19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 3.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-              </svg>
-              Call (254) 840-4040
+          <motion.div
+            className={styles.ctaRow}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.34 }}
+          >
+            <a href={primaryCta.href} className={styles.ctaPrimary}>
+              <PhoneIcon size={15} /> {primaryCta.label}
             </a>
-            <Link href="/contact" className={styles.ctaSecondary}>
-              Free Estimate
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                <polyline points="9 18 15 12 9 6"/>
-              </svg>
+            <Link href={secondaryCta.href} className={styles.ctaSecondary}>
+              {secondaryCta.label} <ChevronIcon size={12} />
             </Link>
           </motion.div>
 
-          <motion.div className={styles.chips}
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.45 }}>
-            {CHIPS.map((c) => (
-              <span key={c} className={styles.chip}>{c}</span>
+          <motion.div
+            className={styles.chips}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.48 }}
+          >
+            {chips.map((c) => (
+              <span key={c} className={styles.chip}>
+                <CheckIcon size={9} /> {c}
+              </span>
             ))}
           </motion.div>
         </div>
 
-        <div className={styles.visual} aria-hidden="true">
-          <TempMeter />
+        {/* Spacer column preserves grid balance on wide viewports; texture shows through */}
+        <div className={styles.depthWell} aria-hidden="true">
+          <div className={styles.depthRing} />
+          <div className={styles.depthRingOuter} />
         </div>
       </div>
     </section>

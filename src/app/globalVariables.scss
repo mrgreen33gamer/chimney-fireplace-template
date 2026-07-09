@@ -1,44 +1,30 @@
-// src/app/globalVariables.scss
-// ─────────────────────────────────────────────────────────────────────────────
-// EmberStack Chimney & Fireplace — Brand Tokens
-//
-// THREE DISTINCT FONTS:
-//   $titleFont  → Barlow Condensed  — bold condensed display (hero h1, section titles)
-//   $headerFont → Outfit            — clean geometric sans   (nav, card titles, labels, CTAs)
-//   $textFont   → Inter             — refined humanist sans  (body copy, form text, paragraphs)
-//
-// Usage guide:
-//   h1, .hero headline              → $titleFont  (uppercase, tight tracking)
-//   h2, h3, nav links, btn text     → $headerFont (medium weight, normal case)
-//   p, label, input, small text     → $textFont   (regular/medium weight)
-// ─────────────────────────────────────────────────────────────────────────────
+// Auto uniqueness tokens — hearth & home warmth
+$titleFont:  var(--font-title),  'Abril Fatface', sans-serif;
+$headerFont: var(--font-header), 'Cabin', sans-serif;
+$textFont:   var(--font-body),   'Libre Baskerville', sans-serif;
 
-$titleFont:  var(--font-barlow-condensed), 'Barlow Condensed', sans-serif;
-$headerFont: var(--font-outfit),           'Outfit',           sans-serif;
-$textFont:   var(--font-inter),            'Inter',            sans-serif;
-
-// ── Core Palette ─────────────────────────────────────────────────────────────
 $black:      #000000;
-$obsidian:   #0d1b2a;
-$blackflat:  #1a2a3a;
+$obsidian:   #1c1008;
+$blackflat:  #1c1008;
 $white:      #FFFFFF;
-$offwhite:   #f8fafc;
+$offwhite:   #fff7ed;
 
-// Greys (navy-tinted)
-$darkgrey:   #7a9bb5;
-$grey:       #4a6a85;
-$lightgrey:  #c8d8e8;
+$darkgrey:   #94a3b8;
+$grey:       #64748b;
+$lightgrey:  #e2e8f0;
 
-// Brand Accent — ember/rust
-$orange:     #9a3412;
-$lightorange:#c2410c;
+$orange:     #c2410c;
+$lightorange:#ea580c;
 $darkorange: #7c2d12;
 
-// Legacy aliases
 $green:      $orange;
 $lightgreen: $lightorange;
 $darkgreen:  $darkorange;
-$blue:       #1e6fa8;
+$blue:       #c2410c;
 
-// Error
+$radius-sm:  8px;
+$radius-md:  12px;
+$radius-lg:  18px;
+$radius-pill: 999px;
+
 $danger-red: #ef4444;

@@ -1,4 +1,4 @@
-# EmberStack Chimney & Fireplace — Template Notes
+# EmberStack Chimney & Fireplace â€” Template Notes
 
 Reskin of HVAC fork ? chimney-fireplace-template using garage-door-template as sibling reference.
-Identity: EmberStack Chimney & Fireplace · Waco TX · accent #9a3412
+Identity: EmberStack Chimney & Fireplace Â· Waco TX Â· accent #9a3412

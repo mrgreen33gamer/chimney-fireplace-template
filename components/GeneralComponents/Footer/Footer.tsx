@@ -176,7 +176,7 @@ export default function Footer() {
       <div className={styles.bottomBar}>
         <div className={styles.bottomInner}>
           <p className={styles.copyright}>
-            &copy; {new Date().getFullYear()} EmberStack Chimney & Fireplace. All Rights Reserved. | CSIA-Certified � Bonded & Insured
+            &copy; {new Date().getFullYear()} EmberStack Chimney & Fireplace. All Rights Reserved. | CSIA-Certified · Bonded & Insured
           </p>
           <a href="tel:+12548404040" className={styles.emergencyBtn}
             onClick={() => trackEvent({ eventType: 'phone_click', elementLabel: '24/7 Emergency', section: 'Footer-Bottom' })}>

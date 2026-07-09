@@ -36,36 +36,42 @@ export default function HomePage() {
       title: "Chimney Sweep",
       body: "Professional sweeping to remove creosote, soot, and debris. Safer fires, better draft, and a cleaner flue — most homes done in a single visit.",
       link: "/services/chimney-sweep",
+      image: "/pages/home/services/service-1.jpg",
     },
     {
       icon: faHammer,
       title: "Chimney Repair",
       body: "Crown, flashing, masonry, liner, and smoke-chamber repairs that stop leaks and restore structural integrity for Central Texas weather.",
       link: "/services/chimney-repair",
+      image: "/pages/home/services/service-2.jpg",
     },
     {
       icon: faHome,
       title: "Fireplace Installation",
       body: "Wood, gas, and insert installations sized for your home — clean finishes, proper venting, and code-compliant setup from start to finish.",
       link: "/services/fireplace-install",
+      image: "/pages/home/services/service-3.jpg",
     },
     {
       icon: faShieldHalved,
       title: "Caps & Dampers",
       body: "Chimney caps, spark arrestors, and damper systems that block animals, rain, and downdrafts while protecting the flue long-term.",
       link: "/services/cap-damper",
+      image: "/pages/home/services/service-4.jpg",
     },
     {
       icon: faWind,
       title: "Dryer Vent Cleaning",
       body: "Full dryer vent cleaning to cut fire risk, restore drying efficiency, and clear lint buildup from the drum to the exterior termination.",
       link: "/services/dryer-vent",
+      image: "/pages/home/services/service-1.jpg",
     },
     {
       icon: faClipboardCheck,
       title: "Annual Inspections",
       body: "Level 1–2 chimney inspections with photo documentation so you know exactly what is safe, what needs attention, and what can wait.",
       link: "/services/annual-inspection",
+      image: "/pages/home/services/service-2.jpg",
     },
   ];
 
@@ -184,23 +190,29 @@ export default function HomePage() {
       <WelcomePage />
       <TrustBar headline="Central Texas trusts EmberStack for safe chimneys and fireplaces" />
       <ImpactMetrics metrics={metrics} title="Numbers That Matter" cityName="Waco" />
+      <WhyChooseUs cityName="Waco" features={whyFeatures} title="Why Homeowners Choose EmberStack" />
       <ServiceCardComponent
         cards={services}
         heading="Chimney & Fireplace Services"
         subheading="From annual sweeps to full fireplace installs — flat-rate pricing, CSIA-certified crews, Clean Sweep Guarantee."
       />
-      <WhyChooseUs cityName="Waco" features={whyFeatures} title="Why Homeowners Choose EmberStack" />
-      <ProcessTimeline steps={processSteps} />
-      <WhatToExpect expectations={expectations} sectionTitle="What to Expect on Service Day" />
       <GuaranteeSection />
+      <ProcessTimeline steps={processSteps} />
       <Testimonials testimonials={reviews} title="What Central Texas Homeowners Say" />
+      <CTABanner
+        secondaryLink="/contact"
+        secondaryText="Book Inspection"
+        primaryLink="tel:+12548404040"
+        primaryText="Call (254) 840-4040"
+        headline="Safer Fires. Cleaner Chimneys."
+        subline="Inspections, sweeps, caps, and fireplace repair — CSIA-minded crews for Central Texas homes."
+      
+        imageSrc="/pages/home/welcome/hero-main.jpg"
+       />
       <LocalServiceAreas areas={localAreas} cityName="Waco" title="Service Areas" />
+      <WhatToExpect expectations={expectations} sectionTitle="What to Expect on Service Day" />
       <FAQ cityName="Waco" faq={faq} />
       <BlogPreviewGrid />
-      <CTABanner
-        headline="Ready for a Safer, Cleaner Chimney?"
-        subline="Same-day appointments available. Flat-rate pricing — no hidden fees. Call now or grab a free estimate online."
-      />
       <Variant4
         title="Request Chimney Service"
         cityName="Waco"
