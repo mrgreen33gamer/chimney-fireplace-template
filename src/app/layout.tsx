@@ -125,7 +125,7 @@ export const metadata: Metadata = {
     siteName: "EmberStack Chimney & Fireplace",
     images: [
       {
-        url: `${BASE_URL}/logos/scott-apps-banner.png?v=1`,
+        url: `${BASE_URL}/pages/home/welcome/hero-main.jpg`,
         width: 1200,
         height: 630,
         alt: "EmberStack Chimney & Fireplace — Waco TX Chimney Sweep & Installation",
@@ -139,7 +139,7 @@ export const metadata: Metadata = {
     title: "EmberStack Chimney & Fireplace | Waco TX Chimney Pros",
     description:
       "Chimney sweep, repair, fireplace installation & more for Central Texas. CSIA-certified & insured — Clean Sweep Guarantee.",
-    images: [`${BASE_URL}/logos/scott-apps-banner.png?v=1`],
+    images: [`${BASE_URL}/pages/home/welcome/hero-main.jpg`],
   },
   robots: {
     index: true,

@@ -64,14 +64,14 @@ export default function HomePage() {
       title: "Dryer Vent Cleaning",
       body: "Full dryer vent cleaning to cut fire risk, restore drying efficiency, and clear lint buildup from the drum to the exterior termination.",
       link: "/services/dryer-vent",
-      image: "/pages/home/services/service-1.jpg",
+      image: "/pages/home/welcome/before.jpg",
     },
     {
       icon: faClipboardCheck,
       title: "Annual Inspections",
       body: "Level 1–2 chimney inspections with photo documentation so you know exactly what is safe, what needs attention, and what can wait.",
       link: "/services/annual-inspection",
-      image: "/pages/home/services/service-2.jpg",
+      image: "/pages/home/welcome/after.jpg",
     },
   ];
 
