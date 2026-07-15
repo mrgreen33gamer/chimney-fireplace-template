@@ -128,8 +128,8 @@ export default function WelcomePage() {
         >
           <div className={styles.photoCard}>
             <Image
-              src="/pages/home/welcome/hero-chimney-tech.jpg"
-              alt="Chimney technician repairing a masonry chimney crown on a residential rooftop"
+              src="/pages/home/welcome/hero-brick-chimney.jpg"
+              alt="Red brick residential chimney with cap and flashing on a wood-shingle rooftop"
               fill
               priority
               sizes="(max-width: 960px) 88vw, 460px"
